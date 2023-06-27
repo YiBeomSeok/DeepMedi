@@ -1,23 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="org.bmsk.presentation.ui.CameraViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            style="@style/Widget.Material3.AppBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="홈"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/guideTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="100dp"
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.guideState.text}"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:partialColor="@{viewModel.guideState.partialText}"
+            tools:text="얼굴 인식을 위해\n화면을 응시해 주세요." />
+
+        <View
+            android:id="@+id/borderFrame"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/rectangle_red_b3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideTextView" />
+
         <FrameLayout
             android:id="@+id/cameraLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/design_default_color_primary_dark"
+            android:layout_margin="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/borderFrame"
+            app:layout_constraintEnd_toEndOf="@id/borderFrame"
+            app:layout_constraintStart_toStartOf="@id/borderFrame"
+            app:layout_constraintTop_toTopOf="@id/borderFrame" />
+
+        <ImageView
+            android:id="@+id/progressView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:src="@drawable/img_measure_fullstep_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/cameraLayout" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="3dp"
+            android:alpha="0.2"
+            android:background="#00FF80"
+            android:contentDescription="@string/buttonSendingPicture"
+            android:padding="100dp"
+            android:src="@drawable/camera_ic_recognition_confirm"
+            app:layout_constraintBottom_toBottomOf="@id/borderFrame"
+            app:layout_constraintEnd_toEndOf="@id/borderFrame"
+            app:layout_constraintStart_toStartOf="@id/borderFrame"
+            app:layout_constraintTop_toTopOf="@id/borderFrame"
+            app:visibleOrGone="@{viewModel.guideState.isSendButtonEnabled}"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

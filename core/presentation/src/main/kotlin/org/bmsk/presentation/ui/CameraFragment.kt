@@ -1,6 +1,5 @@
-package org.bmsk.presentation
+package org.bmsk.presentation.ui
 
-import android.Manifest
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.bmsk.camera.Camera
+import org.bmsk.presentation.R
 import org.bmsk.presentation.databinding.FragmentCameraBinding
 
 @AndroidEntryPoint
@@ -33,6 +33,7 @@ class CameraFragment : Fragment() {
             false
         ).apply {
             lifecycleOwner = this@CameraFragment.viewLifecycleOwner
+            viewModel = this@CameraFragment.viewModel
         }
         return binding.root
     }

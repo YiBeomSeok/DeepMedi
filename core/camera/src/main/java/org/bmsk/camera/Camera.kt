@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.view.ViewGroup
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -30,6 +31,8 @@ class Camera(
     private lateinit var previewView: PreviewView
 
     private var cameraExecutor = Executors.newSingleThreadExecutor()
+
+    private var imageCapture: ImageCapture? = null
 
     fun initCamera(layout: ViewGroup) {
         previewView = PreviewView(context)
@@ -62,7 +65,7 @@ class Camera(
 
     private fun startPreview() {
         val cameraProvider = cameraProviderFuture.get()
-        val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+        val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
 
         try {
             cameraProvider.unbindAll()
