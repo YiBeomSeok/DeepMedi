@@ -40,6 +40,7 @@ android {
 
 dependencies {
     implementation(project(":core:camera"))
+    implementation(project(":core:domain"))
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -53,4 +54,8 @@ dependencies {
     // di
     implementation("com.google.dagger:hilt-android:2.46.1")
     kapt("com.google.dagger:hilt-android-compiler:2.46.1")
+    // network
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
