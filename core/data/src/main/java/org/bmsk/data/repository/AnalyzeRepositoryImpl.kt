@@ -1,7 +1,6 @@
 package org.bmsk.data.repository
 
 import android.graphics.Bitmap
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import org.bmsk.data.datasource.RemoteDatasource
 import org.bmsk.domain.model.AnalyzedInfo

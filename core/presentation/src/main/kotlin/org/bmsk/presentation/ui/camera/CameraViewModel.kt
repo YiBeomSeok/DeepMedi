@@ -1,4 +1,4 @@
-package org.bmsk.presentation.ui
+package org.bmsk.presentation.ui.camera
 
 import android.graphics.Bitmap
 import android.util.Log
