@@ -5,12 +5,16 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="org.bmsk.presentation.model.UserHealthStateContentItem" />
     </data>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/deepMediBaseBack"
+        android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="8dp">
 
@@ -19,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:text="@{item.title}"
             android:textColor="@color/deepMediBlack"
             android:textSize="11sp"
             android:textStyle="bold"
@@ -30,8 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:text="@{item.detailDescription}"
             android:textColor="@color/deepMediBlack"
             android:textSize="11sp"
+            android:textStyle="bold"
             tools:text="66회/분" />
 
         <ImageView

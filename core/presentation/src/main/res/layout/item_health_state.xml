@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="org.bmsk.presentation.model.UserHealthStateItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,13 +45,13 @@
             android:layout_marginTop="12sp"
             android:ellipsize="end"
             android:maxLines="3"
+            android:text="@string/test_message"
             android:textColor="@color/deepMediBlack"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/healthStatusTitleTextView"
-            tools:text="주의가 필요합니다. 기름진 음식은 자제하시고 건강은\n예방이 중요하다는 것을 잊지 마세요!\n자세한 설명을 보고 싶다면 인쇄하기 버튼을 눌러주세요." />
+            app:layout_constraintTop_toBottomOf="@id/healthStatusTitleTextView" />
 
         <GridLayout
             android:id="@+id/gridLayout"
@@ -56,14 +59,85 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/rectangle_r8"
-            android:columnCount="8"
+            android:background="@color/deepMediGridBorder"
+            android:columnCount="4"
             android:rowCount="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
-            tools:layout_height="80dp">
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView">
+
+            <include
+                android:id="@+id/heartRatePerMinuteView"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
+
+            <include
+                android:id="@+id/cardiovascularHealthView"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
+
+            <include
+                android:id="@+id/respiratoryRatePerMinuteView"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
+
+            <include
+                android:id="@+id/fatigueView"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
+
+            <include
+                android:id="@+id/stressView"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
+
+            <include
+                android:id="@+id/temperatureView"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
+
+            <include
+                android:id="@+id/alcholLevelView"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
+
+            <include
+                android:id="@+id/spo2View"
+                layout="@layout/item_health_state_content"
+                android:layout_width="72dp"
+                android:layout_height="80dp"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="0.5dp" />
 
         </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

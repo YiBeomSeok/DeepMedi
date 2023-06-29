@@ -5,8 +5,10 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 
 @BindingAdapter("partialColor")
 fun setPartialColor(textView: TextView, partialText: String) {
@@ -29,3 +31,10 @@ fun setVisibility(view: View, isVisible: Boolean) {
     view.visibility = if (isVisible) View.VISIBLE else View.GONE
 }
 
+@BindingAdapter("setImage")
+fun ImageView.setImage(imageUrl: String) {
+    Glide.with(this)
+        .load(imageUrl)
+        .circleCrop()
+        .into(this)
+}

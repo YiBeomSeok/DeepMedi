@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="org.bmsk.presentation.model.UserProfileItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +30,7 @@
 
         <ImageView
             android:id="@+id/userProfileImageView"
+            setImage="@{item.profile}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
@@ -44,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="24dp"
+            android:text="@{item.name}"
             android:textColor="@color/deepMediBlack"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -57,6 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:text="@{@string/cumulant_minus_point(item.cumulantMinusPoint)}"
             android:textColor="@color/deepMediBlack"
             android:textSize="12sp"
             android:textStyle="bold"

@@ -2,5 +2,6 @@
 <resources>
     <color name="deepMediRed">#D03843</color>
     <color name="deepMediBlack">#000000</color>
-    <color name="deepMediBaseBack">#FFCDD2</color>
+    <color name="deepMediBaseBack">#FFEBEE</color>
+    <color name="deepMediGridBorder">#E7E7E7</color>
 </resources>
