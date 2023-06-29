@@ -9,7 +9,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.bmsk.camera.Camera
 import org.bmsk.camera.recognition.FaceAnalyzerListener
 import org.bmsk.presentation.R
@@ -46,6 +53,7 @@ class CameraFragment : Fragment(), FaceAnalyzerListener {
 
         camera.initCamera(binding.cameraLayout, this)
         camera.startFaceDetect()
+        observeViewModel()
     }
 
     override fun onDestroyView() {
@@ -67,5 +75,22 @@ class CameraFragment : Fragment(), FaceAnalyzerListener {
         Log.e("CameraFragment", "onFaceDetected")
         camera.shutdown()
         viewModel.uploadImage(bitmap)
+    }
+
+    private fun observeViewModel() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.guideState.collectLatest { uiState ->
+                    if(uiState.isSendButtonEnabled) {
+                        delay(3000L)
+                        navigateToResultFragment()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun navigateToResultFragment() {
+        findNavController().navigate(CameraFragmentDirections.actionCameraFragmentToResultFragment())
     }
 }

@@ -1,9 +1,9 @@
-package org.bmsk.deepmedi
+package org.bmsk.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
-import org.bmsk.deepmedi.databinding.ActivityMainBinding
+import org.bmsk.presentation.databinding.ActivityMainBinding
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

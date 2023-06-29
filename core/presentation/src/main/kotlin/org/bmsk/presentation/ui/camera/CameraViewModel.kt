@@ -23,14 +23,20 @@ class CameraViewModel @Inject constructor(
 
     fun uploadImage(bitmap: Bitmap) {
         _guideState.value = _guideState.value.copy(
-            text = "얼굴 인식 성공",
-            partialText = "성공",
-            isSendButtonEnabled = true
+            loading = true
         )
+
         viewModelScope.launch {
             useCase.uploadImage(bitmap).first()?.let {
                 Log.e("CameraViewModel", it.message)
             }
         }
+
+        _guideState.value = _guideState.value.copy(
+            text = "얼굴 인식 성공",
+            partialText = "성공",
+            isSendButtonEnabled = true,
+            loading = false
+        )
     }
 }

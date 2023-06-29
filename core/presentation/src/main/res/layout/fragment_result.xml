@@ -18,31 +18,37 @@
             android:background="#FFFFFF"
             android:elevation="1dp"
             android:gravity="start"
-            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="@string/re_analyze"
-                android:textColor="@color/deepMediRed"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="@string/result_analyze"
-                android:textColor="@color/deepMediBlack"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="@string/re_analyze"
+                    android:textColor="@color/deepMediRed"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="@string/result_analyze"
+                    android:textColor="@color/deepMediBlack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView

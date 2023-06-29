@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import org.bmsk.presentation.R
 import org.bmsk.presentation.databinding.FragmentResultBinding
 
+@AndroidEntryPoint
 class ResultFragment: Fragment() {
     private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding!!
