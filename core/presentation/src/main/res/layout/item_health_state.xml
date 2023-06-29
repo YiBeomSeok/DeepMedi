@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp">
+
+        <TextView
+            android:id="@+id/healthStatusTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:text="@string/health_state"
+            android:textColor="@color/deepMediRed"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/rectangle_vertical_red"
+            app:layout_constraintBottom_toBottomOf="@id/healthStatusTitleTextView"
+            app:layout_constraintStart_toEndOf="@id/healthStatusTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/healthStatusTitleTextView" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12sp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/deepMediBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/healthStatusTitleTextView"
+            tools:text="주의가 필요합니다. 기름진 음식은 자제하시고 건강은\n예방이 중요하다는 것을 잊지 마세요!\n자세한 설명을 보고 싶다면 인쇄하기 버튼을 눌러주세요." />
+
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rectangle_r8"
+            android:columnCount="8"
+            android:rowCount="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+            tools:layout_height="80dp">
+
+        </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

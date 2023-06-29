@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabMinWidth">72dp</item>
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+    </style>
+</resources>

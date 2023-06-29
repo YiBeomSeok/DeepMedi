@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="buttonSendingPicture">사진 전송하기 버튼</string>
+    <string name="health_state">건강 상태</string>
+    <string name="re_analyze">다시측정</string>
+    <string name="result_analyze">측정 결과</string>
+    <string name="user_profile_image">userProfileImage</string>
+    <string name="basic_info_title">기본 정보</string>
 </resources>

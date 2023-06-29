@@ -43,6 +43,8 @@ android {
 
 dependencies {
     implementation(project(":core:presentation"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:data"))
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")

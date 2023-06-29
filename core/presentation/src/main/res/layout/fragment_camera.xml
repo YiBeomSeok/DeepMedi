@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="org.bmsk.presentation.ui.CameraViewModel" />
+            type="org.bmsk.presentation.ui.camera.CameraViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,9 +16,10 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
-            style="@style/Widget.Material3.AppBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:elevation="1dp"
             android:gravity="start"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,10 +29,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:padding="16dp"
                 android:text="홈"
-                android:textColor="#000000"
+                android:textColor="@color/deepMediBlack"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
             android:layout_marginEnd="100dp"
             android:gravity="center_horizontal"
             android:text="@{viewModel.guideState.text}"
-            android:textColor="#000000"
+            android:textColor="@color/deepMediBlack"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,10 +87,11 @@
             app:layout_constraintTop_toBottomOf="@id/cameraLayout" />
 
         <ImageView
+            android:id="@+id/completeImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="3dp"
-            android:alpha="0.2"
+            android:alpha="0.85"
             android:background="#00FF80"
             android:contentDescription="@string/buttonSendingPicture"
             android:padding="100dp"
