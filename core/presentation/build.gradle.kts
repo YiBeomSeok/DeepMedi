@@ -42,12 +42,6 @@ android {
     hilt {
         enableAggregatingTask = true
     }
-
-    kotlin {
-        sourceSets.configureEach {
-            kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
-        }
-    }
 }
 
 dependencies {
@@ -58,6 +52,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.paging.runtime)
 
     testImplementation(libs.junit)

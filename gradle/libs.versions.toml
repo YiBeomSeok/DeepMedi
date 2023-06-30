@@ -10,6 +10,7 @@ mlkit = "16.1.5"
 androidMaterial = "1.9.0"
 androidxCoreKtx = "1.10.1"
 androidxAppcompat = "1.6.1"
+androidxConstraintlayout = "2.1.4"
 androidxFragmentKtx = "1.6.0"
 androidxPagingRuntime = "3.1.1"
 androidxNavigation = "2.6.0"
@@ -37,6 +38,7 @@ glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 android-material = { module = "com.google.android.material:material", version.ref = "androidMaterial" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCoreKtx" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompat" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidxConstraintlayout"}
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragmentKtx" }
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "androidxPagingRuntime" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidxNavigation" }

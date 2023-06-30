@@ -58,7 +58,7 @@ dependencies {
     implementation(project(":core:data"))
 
     implementation(libs.androidx.appcompat)
-    
+
     // di
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)

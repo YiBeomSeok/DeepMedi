@@ -10,6 +10,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import org.bmsk.data.util.toDomainModel
+import org.bmsk.domain.model.NetworkResult
 import org.bmsk.domain.model.UploadImageResult
 import org.bmsk.network.service.DeepMediService
 import java.io.File
@@ -22,7 +23,8 @@ class RemoteDatasource @Inject constructor(
     private val ioDispatcher: CoroutineContext,
     @ApplicationContext private val context: Context
 ) {
-    fun uploadImage(image: Bitmap): Flow<UploadImageResult> = flow {
+    fun uploadImage(image: Bitmap): Flow<NetworkResult<UploadImageResult>> = flow {
+        emit(NetworkResult.Loading)
         val file = image.toFile()
         val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
@@ -30,29 +32,36 @@ class RemoteDatasource @Inject constructor(
         try {
             val response = deepMediService.uploadImage(body)
             if (response.isSuccessful) {
-                response.body()?.let {
-                    emit(it.toDomainModel())
-                } ?: emit(UploadImageResult(false, "Upload failed"))
+                val responseBody = response.body()
+                if(responseBody != null) {
+                    emit(NetworkResult.Success(responseBody.toDomainModel()))
+                } else {
+                    emit(NetworkResult.Error("No response body found"))
+                }
             } else {
-                emit(UploadImageResult(false, "Upload failed"))
+                emit(NetworkResult.Error("Upload failed with HTTP code: ${response.code()}"))
             }
         } catch (e: Exception) {
-            emit(UploadImageResult(false, "Upload failed: ${e.message}"))
+            emit(NetworkResult.Error("Upload failed with exception: ${e.message}"))
         }
     }.flowOn(ioDispatcher)
 
     fun getMeasuredResult() = flow {
+        emit(NetworkResult.Loading)
         try {
             val response = deepMediService.getMeasuredResult()
             if (response.isSuccessful) {
-                response.body()?.let {
-                    emit(it.toDomainModel())
-                } ?: emit(null)
+                val responseBody = response.body()
+                if(responseBody != null) {
+                    emit(NetworkResult.Success(responseBody.toDomainModel()))
+                } else {
+                    emit(NetworkResult.Error("No response body found"))
+                }
             } else {
-                emit(null)
+                emit(NetworkResult.Error("HTTP request failed with code: ${response.code()}"))
             }
         } catch (e: Exception) {
-            emit(null)
+            emit(NetworkResult.Error("HTTP request failed with exception: ${e.message}"))
         }
     }.flowOn(ioDispatcher)
 
