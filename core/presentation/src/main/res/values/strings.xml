@@ -8,4 +8,5 @@
     <string name="basic_info_title">기본 정보</string>
     <string name="cumulant_minus_point">운전자 누적 벌점: %s</string>
     <string name="test_message">주의가 필요합니다. 기름진 음식은 자제하시고 건강은\n예방이 중요하다는 것을 잊지 마세요!\n자세한 설명을 보고 싶다면 인쇄하기 버튼을 눌러주세요.</string>
+    <string name="guide_double_tab_exit">한 번 더 누르면 종료됩니다.</string>
 </resources>
