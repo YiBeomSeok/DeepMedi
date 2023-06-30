@@ -103,14 +103,15 @@
             app:visibleOrGone="@{viewModel.guideState.isSendButtonEnabled}"
             tools:visibility="visible" />
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:visibleOrGone="@{viewModel.guideState.loading}"
+            android:indeterminate="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:visibleOrGone="@{viewModel.guideState.loading}"
             tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

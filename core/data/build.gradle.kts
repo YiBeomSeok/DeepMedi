@@ -1,17 +1,19 @@
+import org.bmsk.buildsrc.Configuration
+
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    id(libs.plugins.android.library.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.kotlin.kapt.get().pluginId)
+    id(libs.plugins.hilt.plugin.get().pluginId)
 }
 
 android {
     namespace = "org.bmsk.data"
-    compileSdk = 33
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        minSdk = 28
-        targetSdk = 33
+        minSdk = Configuration.minSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -40,17 +42,14 @@ dependencies {
     implementation(project(":core:network"))
 
     // di
-    implementation("com.google.dagger:hilt-android:2.46.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.46.1")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
     // network
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.okhttp3.okhttp)
+    implementation(libs.retrofit2.converter.gson)
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

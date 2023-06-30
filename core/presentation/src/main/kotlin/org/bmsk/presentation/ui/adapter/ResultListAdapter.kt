@@ -6,7 +6,8 @@ import org.bmsk.presentation.model.ListItem
 import org.bmsk.presentation.ui.viewholder.BindingViewHolder
 import org.bmsk.presentation.ui.viewholder.ViewHolderGenerator
 
-class ResultListAdapter : ListAdapter<ListItem, BindingViewHolder<*>>(DiffCallback()) {
+class ResultListAdapter
+    : ListAdapter<ListItem, BindingViewHolder<*>>(DiffCallback()) {
 
     override fun getItemViewType(position: Int): Int {
         val item = getItem(position)

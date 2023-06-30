@@ -1,5 +1,7 @@
 package org.bmsk.presentation.model
 
+import org.bmsk.domain.model.HealthStatus
+
 data class UserHealthStateItem(
     val bpm: Int,
     val sys: Int,
@@ -13,14 +15,6 @@ data class UserHealthStateItem(
 ) : ListItem {
     override val viewType: ViewType
         get() = ViewType.USER_HEALTH_STATE
-}
-
-enum class HealthStatus {
-    NORMAL,
-    CAUTION,
-    WARNING,
-    DANGER,
-    NONE,
 }
 
 data class UserHealthStateContentItem(

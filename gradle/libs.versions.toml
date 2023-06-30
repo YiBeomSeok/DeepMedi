@@ -1,0 +1,58 @@
+[versions]
+kotlin = "1.8.20"
+agp = "8.0.2"
+hilt = "2.46.1"
+okhttp3 = "5.0.0-alpha.11"
+retrofit2 = "2.9.0"
+glide = "4.15.1"
+junit = "4.13.2"
+mlkit = "16.1.5"
+androidMaterial = "1.9.0"
+androidxCoreKtx = "1.10.1"
+androidxAppcompat = "1.6.1"
+androidxFragmentKtx = "1.6.0"
+androidxPagingRuntime = "3.1.1"
+androidxNavigation = "2.6.0"
+androidxJunit = "1.1.5"
+androidxEspressoCore = "3.5.1"
+androidxCamera = "1.2.3"
+
+[plugins]
+hilt-plugin = { id = "dagger.hilt.android.plugin", version.ref = "hilt" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-kapt = { id = "kotlin-kapt" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+androidx-navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin" }
+
+[libraries]
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+okhttp3-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp3" }
+okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp3" }
+retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit2" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+android-material = { module = "com.google.android.material:material", version.ref = "androidMaterial" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCoreKtx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompat" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragmentKtx" }
+androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "androidxPagingRuntime" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-safeargs = { module = "androidx.navigation.safeargs.kotlin:androidx.navigation.safeargs.kotlin.gradle.plugin", version.ref = "androidxNavigation" }
+
+# camera
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "androidxCamera" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "androidxCamera" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "androidxCamera" }
+androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "androidxCamera" }
+androidx-camera-extensions = { module = "androidx.camera:camera-extensions", version.ref = "androidxCamera" }
+
+# ml
+mlkit-face-detection = { module = "com.google.mlkit:face-detection", version.ref = "mlkit" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidxJunit" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "androidxEspressoCore" }

@@ -1,21 +1,23 @@
+import org.bmsk.buildsrc.Configuration
+
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
-    id("androidx.navigation.safeargs.kotlin")
+    id(libs.plugins.android.application.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.kotlin.kapt.get().pluginId)
+    id(libs.plugins.hilt.plugin.get().pluginId)
 }
 
 android {
     namespace = "org.bmsk.deepmedi"
-    compileSdk = 33
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
         applicationId = "org.bmsk.deepmedi"
-        minSdk = 28
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Configuration.minSdk
+        targetSdk = Configuration.targetSdk
+        versionCode = Configuration.versionCode
+        versionName = Configuration.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,6 +41,15 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    hilt {
+        enableAggregatingTask = true
+    }
+
+    kotlin {
+        sourceSets.configureEach {
+            kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
+        }
+    }
 }
 
 dependencies {
@@ -46,15 +57,9 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.fragment:fragment-ktx:1.6.0")
-
+    implementation(libs.androidx.appcompat)
+    
     // di
-    implementation("com.google.dagger:hilt-android:2.46.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.46.1")
-    // navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 }

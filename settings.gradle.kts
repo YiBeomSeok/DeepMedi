@@ -10,16 +10,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 rootProject.name = "DeepMedi"
-include ':app'
-include ':app:network'
-include ':app:domain'
-include ':domain'
-include ':data'
-include ':core:presentation'
-include ':core:domain'
-include ':core:data'
-include ':core:network'
-include ':core:camera'
+include(":app")
+include(":core:presentation")
+include(":core:domain")
+include(":core:data")
+include(":core:network")
+include(":core:camera")

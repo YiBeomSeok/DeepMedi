@@ -22,21 +22,21 @@ class CameraViewModel @Inject constructor(
     val guideState = _guideState.asStateFlow()
 
     fun uploadImage(bitmap: Bitmap) {
-        _guideState.value = _guideState.value.copy(
-            loading = true
-        )
-
         viewModelScope.launch {
+            _guideState.value = _guideState.value.copy(
+                loading = true
+            )
+
             useCase.uploadImage(bitmap).first()?.let {
                 Log.e("CameraViewModel", it.message)
             }
-        }
 
-        _guideState.value = _guideState.value.copy(
-            text = "얼굴 인식 성공",
-            partialText = "성공",
-            isSendButtonEnabled = true,
-            loading = false
-        )
+            _guideState.value = _guideState.value.copy(
+                text = "얼굴 인식 성공",
+                partialText = "성공",
+                isSendButtonEnabled = true,
+                loading = false
+            )
+        }
     }
 }

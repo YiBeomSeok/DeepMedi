@@ -48,6 +48,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:contentDescription="@null"
+            setHealthStatus="@{item.status}"
             tools:src="@drawable/ic_normal" />
     </LinearLayout>
 </layout>

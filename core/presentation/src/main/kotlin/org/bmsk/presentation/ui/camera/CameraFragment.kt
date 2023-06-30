@@ -82,7 +82,7 @@ class CameraFragment : Fragment(), FaceAnalyzerListener {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.guideState.collectLatest { uiState ->
                     if(uiState.isSendButtonEnabled) {
-                        delay(3000L)
+                        delay(1000L)
                         navigateToResultFragment()
                     }
                 }

@@ -1,15 +1,17 @@
+import org.bmsk.buildsrc.Configuration
+
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id(libs.plugins.android.library.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
 }
 
 android {
     namespace = "org.bmsk.camera"
-    compileSdk = 33
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        minSdk = 28
-        targetSdk = 33
+        minSdk = Configuration.minSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -34,16 +36,15 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.10.1")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
 
     // camera
-    implementation("androidx.camera:camera-core:1.2.3")
-    implementation("androidx.camera:camera-camera2:1.2.3")
-    implementation("androidx.camera:camera-lifecycle:1.2.3")
-    implementation("androidx.camera:camera-view:1.2.3")
-    implementation("androidx.camera:camera-extensions:1.2.3")
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera.extensions)
     // ml: face-detection
-    implementation("com.google.mlkit:face-detection:16.1.5")
-
-    implementation("androidx.fragment:fragment-ktx:1.6.0")
+    implementation(libs.mlkit.face.detection)
 }

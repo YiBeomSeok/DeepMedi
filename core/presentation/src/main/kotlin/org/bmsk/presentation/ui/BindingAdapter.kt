@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import org.bmsk.domain.model.HealthStatus
+import org.bmsk.presentation.R
 
 @BindingAdapter("partialColor")
 fun setPartialColor(textView: TextView, partialText: String) {
@@ -20,7 +22,12 @@ fun setPartialColor(textView: TextView, partialText: String) {
         val endIndex = startIndex + partialText.length
 
         val foregroundColorSpan = ForegroundColorSpan(Color.RED)
-        spannableString.setSpan(foregroundColorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(
+            foregroundColorSpan,
+            startIndex,
+            endIndex,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
     }
 
     textView.text = spannableString
@@ -37,4 +44,15 @@ fun ImageView.setImage(imageUrl: String) {
         .load(imageUrl)
         .circleCrop()
         .into(this)
+}
+
+@BindingAdapter("setHealthStatus")
+fun ImageView.setHealthStatus(healthStatus: HealthStatus) {
+    when (healthStatus) {
+        HealthStatus.NORMAL -> setImageResource(R.drawable.ic_normal)
+        HealthStatus.CAUTION -> setImageResource(R.drawable.ic_caution)
+        HealthStatus.WARNING -> setImageResource(R.drawable.ic_warning)
+        HealthStatus.DANGER -> setImageResource(R.drawable.ic_danger)
+        else -> {}
+    }
 }
