@@ -54,6 +54,6 @@ fun ImageView.setHealthStatus(healthStatus: HealthStatus) {
         HealthStatus.CAUTION -> setImageResource(R.drawable.ic_caution)
         HealthStatus.WARNING -> setImageResource(R.drawable.ic_warning)
         HealthStatus.DANGER -> setImageResource(R.drawable.ic_danger)
-        else -> {}
+        else -> { visibility = View.GONE}
     }
 }
