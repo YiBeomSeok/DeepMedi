@@ -25,6 +25,7 @@ class RemoteDatasource @Inject constructor(
 ) {
     fun uploadImage(image: Bitmap): Flow<NetworkResult<UploadImageResult>> = flow {
         emit(NetworkResult.Loading)
+
         val file = image.toFile()
         val requestFile = file.asRequestBody(MEDIA_TYPE.toMediaTypeOrNull())
         val body = MultipartBody.Part.createFormData(IMAGE_KEY, file.name, requestFile)

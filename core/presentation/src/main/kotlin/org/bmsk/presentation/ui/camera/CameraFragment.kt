@@ -2,7 +2,6 @@ package org.bmsk.presentation.ui.camera
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,17 +61,13 @@ class CameraFragment : Fragment(), FaceAnalyzerListener {
         camera.shutdown()
     }
 
-    override fun detect() {
-    }
+    override fun detect() {}
 
-    override fun notDetect() {
-    }
+    override fun notDetect() {}
 
-    override fun detectProgress(message: String) {
-    }
+    override fun detectProgress(message: String) {}
 
     override fun onFaceDetected(bitmap: Bitmap) {
-        Log.e("CameraFragment", "onFaceDetected")
         camera.shutdown()
         viewModel.uploadImage(bitmap)
     }
@@ -80,9 +75,8 @@ class CameraFragment : Fragment(), FaceAnalyzerListener {
     private fun observeViewModel() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.guideState.collectLatest { uiState ->
+                viewModel.guideState.collect { uiState ->
                     if(uiState.isSendButtonEnabled) {
-                        delay(1000L)
                         navigateToResultFragment()
                     }
                 }

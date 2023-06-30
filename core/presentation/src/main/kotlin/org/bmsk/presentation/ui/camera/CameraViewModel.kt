@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.bmsk.domain.usecase.AnalyzeUseCase
+import org.bmsk.presentation.R
 import org.bmsk.presentation.model.GuideState
 import javax.inject.Inject
 
@@ -18,7 +20,12 @@ class CameraViewModel @Inject constructor(
     private val useCase: AnalyzeUseCase
 ) : ViewModel() {
 
-    private val _guideState = MutableStateFlow(GuideState("얼굴 인식을 위해\n화면을 응시해 주세요.", "화면을 응시"))
+    private val _guideState = MutableStateFlow(
+        GuideState(
+            R.string.guide_inital_face_recognition,
+            R.string.guide_partial_face_recognition
+        )
+    )
     val guideState = _guideState.asStateFlow()
 
     fun uploadImage(bitmap: Bitmap) {
@@ -27,16 +34,16 @@ class CameraViewModel @Inject constructor(
                 loading = true
             )
 
-            useCase.uploadImage(bitmap).first()?.let {
-                Log.e("CameraViewModel", it.message)
+            useCase.uploadImage(bitmap).collect {
+                it?.let {
+                    _guideState.value = _guideState.value.copy(
+                        text = R.string.guide_face_recoginition_success,
+                        partialText = R.string.guide_partial_success,
+                        isSendButtonEnabled = true,
+                        loading = false
+                    )
+                }
             }
-
-            _guideState.value = _guideState.value.copy(
-                text = "얼굴 인식 성공",
-                partialText = "성공",
-                isSendButtonEnabled = true,
-                loading = false
-            )
         }
     }
 }

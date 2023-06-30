@@ -9,4 +9,9 @@
     <string name="cumulant_minus_point">운전자 누적 벌점: %s</string>
     <string name="test_message">주의가 필요합니다. 기름진 음식은 자제하시고 건강은\n예방이 중요하다는 것을 잊지 마세요!\n자세한 설명을 보고 싶다면 인쇄하기 버튼을 눌러주세요.</string>
     <string name="guide_double_tab_exit">한 번 더 누르면 종료됩니다.</string>
+
+    <string name="guide_inital_face_recognition">얼굴 인식을 위해\n화면을 응시해 주세요.</string>
+    <string name="guide_partial_face_recognition">화면을 응시</string>
+    <string name="guide_face_recoginition_success">얼굴 인식 성공</string>
+    <string name="guide_partial_success">성공</string>
 </resources>

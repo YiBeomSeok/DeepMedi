@@ -13,8 +13,9 @@ import org.bmsk.domain.model.HealthStatus
 import org.bmsk.presentation.R
 
 @BindingAdapter("partialColor")
-fun setPartialColor(textView: TextView, partialText: String) {
+fun setPartialColor(textView: TextView, partialTextResId: Int) {
     val fullText = textView.text.toString()
+    val partialText = textView.context.getString(partialTextResId)
     val spannableString = SpannableStringBuilder(fullText)
 
     val startIndex = fullText.indexOf(partialText)
