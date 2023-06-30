@@ -1,3 +1,8 @@
+/**
+ * ListAdapter는 확장 가능성을 고려하였습니다.
+ * ViewType에 따라 ViewHolder를 만들 수 있도록 하였습니다.
+ */
+
 package org.bmsk.presentation.ui.adapter
 
 import android.view.ViewGroup
