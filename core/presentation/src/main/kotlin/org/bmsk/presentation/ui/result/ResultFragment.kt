@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -20,7 +20,7 @@ import org.bmsk.presentation.ui.adapter.ResultListAdapter
 
 @AndroidEntryPoint
 class ResultFragment : Fragment() {
-    private val viewModel: ResultViewModel by viewModels()
+    private val viewModel: ResultViewModel by activityViewModels()
     private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding!!
 

@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.bmsk.camera.Camera
 import org.bmsk.camera.recognition.FaceAnalyzerListener
@@ -24,7 +22,7 @@ import org.bmsk.presentation.databinding.FragmentCameraBinding
 @AndroidEntryPoint
 class CameraFragment : Fragment(), FaceAnalyzerListener {
 
-    private val viewModel: CameraViewModel by viewModels()
+    private val viewModel: CameraViewModel by activityViewModels()
     private var _binding: FragmentCameraBinding? = null
     private val binding get() = _binding!!
 
